@@ -7,6 +7,7 @@ export function adminMiddleware(req: Request, res : Response, next : NextFunctio
         const auth = req.headers.authorization;
         if(!auth || !auth.startsWith('Bearer')){
             res.status(403).json({
+                admin : false,
                 message : 'invalid / missing token'
             });
             return;
@@ -15,6 +16,7 @@ export function adminMiddleware(req: Request, res : Response, next : NextFunctio
         const JWT_SECRETKEY = process.env.JWT_SECRETKEY;
         if(!JWT_SECRETKEY){
             res.json({
+                admin : false,
                 message : 'server error / missing JWT_SECRETKEY'
             });
             return;
@@ -23,6 +25,7 @@ export function adminMiddleware(req: Request, res : Response, next : NextFunctio
         const decoded = jwt.verify(token, JWT_SECRETKEY) as jwt.JwtPayload;
         if(!decoded.admin){
             res.status(411).json({
+                admin : false,
                 message : 'user is not an admin'
             });
             return;
@@ -31,6 +34,7 @@ export function adminMiddleware(req: Request, res : Response, next : NextFunctio
         next();
     } catch (err) {
         res.status(403).json({
+            admin : false,
             message : 'invaid token/ user not admin'
         })
     }

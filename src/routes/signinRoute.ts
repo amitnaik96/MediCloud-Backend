@@ -52,9 +52,14 @@ router.post('/signin', async (req, res) => {
             throw new Error("JWT_SECRETKEY environment variable is not defined");
         }
         const token = jwt.sign({id : checkUser.id, username, admin : checkUser.admin}, JWT_SECRETKEY);
-        res.json({
-            token
+        res.cookie("token", token, {
+            httpOnly : true, 
+            path : '/',
+            maxAge: 3600000
         });
+        res.json({
+            message : "user loggedin!!" 
+        })
     } catch (err) {
         res.status(411).json({
             message : 'server error'

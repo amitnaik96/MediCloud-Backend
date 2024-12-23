@@ -10,17 +10,15 @@ const prisma = new PrismaClient();
 router.get('/patients', authMiddleware, async (req, res) => {
     try {
         const response = await prisma.patient.findMany({
-            take : 10
-        })
-        const decrytedResponse = response.map(obj => {
-            return {
-                id : obj.id, 
-                name : obj.name, 
-                phoneNo : obj.phone_no, 
-                details : decrypt({iv : obj.iv, encryptedData : obj.encrypted_data})};
+            take : 3,
+            select : {
+                id : true,
+                name : true,
+                phone_no : true
+            }
         })
         res.json({
-            response : decrytedResponse
+            response
         });
     } catch(err) {
         res.status(503).json({
@@ -105,9 +103,13 @@ router.post('/patient', authMiddleware,  async (req, res) => {
                 phone_no : phoneNo,
                 iv,
                 encrypted_data : encryptedData
+            },
+            select : {
+                id : true
             }
         });
         res.json({
+            id : response.id,
             message : 'Patient added successfully!'
         })
     } catch (err) {
@@ -193,6 +195,37 @@ router.put('/patient', async (req, res) => {
         });
     }
 
+})
+
+router.get('/filterpatient', authMiddleware, async (req, res) => {
+    try {
+        const filter = req.query.filter as string;
+        if(!filter){
+            res.status(411).json({
+                message : 'invalid params'
+            })
+        }
+
+        const response = await prisma.patient.findMany({
+            where : {
+                phone_no : {startsWith : filter}
+            },
+            take : 5,
+            select : {
+                id : true,
+                name : true,
+                phone_no : true
+            }
+        })
+
+        res.json({
+            response
+        })
+    } catch (err) {
+        res.status(403).json({
+            message : 'server error'
+        });
+    }
 })
 
 export default router;

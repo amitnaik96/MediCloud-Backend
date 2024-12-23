@@ -4,19 +4,10 @@ import 'dotenv/config'
 
 export function adminMiddleware(req: Request, res : Response, next : NextFunction){
     try {
-        const auth = req.headers.authorization;
-        if(!auth || !auth.startsWith('Bearer')){
-            res.status(403).json({
-                admin : false,
-                message : 'invalid / missing token'
-            });
-            return;
-        }
-        const token = auth.split(' ')[1];
+        const token = req.cookies.token;
         const JWT_SECRETKEY = process.env.JWT_SECRETKEY;
         if(!JWT_SECRETKEY){
-            res.json({
-                admin : false,
+            res.status(403).json({
                 message : 'server error / missing JWT_SECRETKEY'
             });
             return;
@@ -25,7 +16,6 @@ export function adminMiddleware(req: Request, res : Response, next : NextFunctio
         const decoded = jwt.verify(token, JWT_SECRETKEY) as jwt.JwtPayload;
         if(!decoded.admin){
             res.status(411).json({
-                admin : false,
                 message : 'user is not an admin'
             });
             return;
@@ -34,8 +24,7 @@ export function adminMiddleware(req: Request, res : Response, next : NextFunctio
         next();
     } catch (err) {
         res.status(403).json({
-            admin : false,
-            message : 'invaid token/ user not admin'
+            message : 'invalid token/ user not admin'
         })
     }
 }

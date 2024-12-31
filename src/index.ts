@@ -17,7 +17,7 @@ const limiter = rateLimit({
 const app = express();
 app.use(cors({
     credentials : true,
-    origin : "https://medicloud.realamit.xyz"
+    origin : process.env.CORS_URL
 }));
 app.use(express.json());
 app.use(cookieParser());

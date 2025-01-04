@@ -13,9 +13,9 @@
          medicloud-backend
 ```
 
-## OR
 
-## Get image from docker
+
+## Get image from dockerhub
 
 ```bash
     docker pull darkxprime/medicloud-server:v3
@@ -30,3 +30,7 @@
         -e CORS_URL="http://localhost:3000 OR any other custom domain" \
         darkxprime/medicloud-server:v3
 ```
+
+## Design
+
+![Project](https://github.com/amitnaik96/MediCloud-Backend/blob/main/SD.png)

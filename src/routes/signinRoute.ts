@@ -55,7 +55,7 @@ router.post('/signin', async (req, res) => {
         res.cookie("token", token, {
             httpOnly : true, 
             path : '/',
-            maxAge: 3600000
+            maxAge: 3600000,
         });
         res.json({
             message : "user loggedin!!" 

@@ -70,8 +70,9 @@ router.get('/patient', authMiddleware, async (req, res) => {
 
 router.post('/patient', authMiddleware,  async (req, res) => {
     try {
-        const { success } = patientSchema.safeParse(req.body);
+        const success = patientSchema.safeParse(req.body);
         if(!success){
+            //console.log(result.error.errors);
             res.status(411).json({
                 message : 'invalid inputs'
             });

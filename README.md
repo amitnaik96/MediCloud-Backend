@@ -33,4 +33,4 @@
 
 ## Design
 
-![Project](https://github.com/amitnaik96/MediCloud-Backend/blob/main/SD.png)
+![Project](https://github.com/amitnaik96/MediCloud-Backend/blob/master/SD.png)

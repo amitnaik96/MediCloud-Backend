@@ -18,7 +18,7 @@ MediCloud Backend is a secure API service for handling encrypted medical data tr
 - **Encryption**: AES (Advanced Encryption Standard)  
 - **Deployment**: AWS EC2, Docker  
 - **Proxy**: Nginx  
-- **Frontend**: Cloudflare Pages 
+- **Frontend**: React (Deployed on Cloudflare Pages) 
 
 ## **Architecture**  
 1. **Frontend** (`https://medicloud.realamit.xyz`) hosted on **Cloudflare Pages**  
@@ -41,8 +41,8 @@ Below are the available API endpoints for MediCloud Backend:
 | `GET`   | `/api/vi/doctors` | Retrieve decrypted doctors data |
 | `GET` | `/api/v1/doctor?id=4` | Get a specific doctor        |
 | `GET` | `/api/v1/filterdoctor?filter=amit` | Filter doctor based on email       |
-| `GET` | `/api/v1/isadmin` | Check whether user(Docotr) is Admin        |
-| `GET` | `/api/v1/me` | Check whether user(Docotr) is Authenticated        |
+| `GET` | `/api/v1/isadmin` | Check whether user(Doctor) is Admin        |
+| `GET` | `/api/v1/me` | Check whether user(Doctor) is Authenticated        |
 | `GET` | `/api/v1/patients` | Retrieve decrypted patients data        |
 | `PUT` | `/api/v1/patient` | Update patient data        |
 | `GET` | `/api/v1/patient?id=18` | Get a specific patient        |

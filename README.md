@@ -22,7 +22,7 @@ MediCloud Backend is a secure API service for handling encrypted medical data tr
 
 ## **Architecture**  
 1. **Frontend** (`https://medicloud.realamit.xyz`) hosted on **Cloudflare Pages**  
-2. **Backend** (`https://server.medicloud.realamit.xyz`) running inside a **Docker container** on **AWS EC2**  
+2. **Backend** (`https://medicloud-server.realamit.xyz`) running inside a **Docker container** on **AWS EC2(Instance has been stopped now!)**  
 3. **Nginx** reverse proxy managing requests  
 4. **Neon-Tech PostgreSQL** for encrypted data storage  
 5. **Data Flow**:
@@ -30,7 +30,7 @@ MediCloud Backend is a secure API service for handling encrypted medical data tr
    - Stored **encrypted in PostgreSQL**  
    - Retrieved **securely and decrypted** before sending to authorized users  
 
-![Architecture](./SD3.png)  
+![Architecture](https://github.com/amitnaik96/MediCloud-Backend/blob/master/SD.png)  
 
 ## **API Endpoints**  
 Below are the available API endpoints for MediCloud Backend:
@@ -39,15 +39,15 @@ Below are the available API endpoints for MediCloud Backend:
 |---------|---------------|------------------------------------|
 | `POST`  | `/api/vi/signin`   | Authentication    |
 | `GET`   | `/api/vi/doctors` | Retrieve decrypted doctors data |
-| `GET` | `/api/v1/doctor?id=4 | Get a specific doctor        |
-| `GET` | `/api/v1/filterdoctor?filter=amit | Filter doctor based on email       |
-| `GET` | `/api/v1/isadmin | Check whether user(Docotr) is Admin        |
-| `GET` | `/api/v1/me | Check whether user(Docotr) is Authenticated        |
-| `GET` | `/api/v1/patients | Retrieve decrypted patients data        |
-| `PUT` | `/api/v1/patient | Update patient data        |
-| `GET` | `/api/v1/patient?id=18 | Get a specific patient        |
-| `GET` | `/api/v1/filterpatient?filter=9036 | Filter patient based on  phone no       |
-| `POST` | `/api/v1/signout | Sign Out      |
+| `GET` | `/api/v1/doctor?id=4` | Get a specific doctor        |
+| `GET` | `/api/v1/filterdoctor?filter=amit` | Filter doctor based on email       |
+| `GET` | `/api/v1/isadmin` | Check whether user(Docotr) is Admin        |
+| `GET` | `/api/v1/me` | Check whether user(Docotr) is Authenticated        |
+| `GET` | `/api/v1/patients` | Retrieve decrypted patients data        |
+| `PUT` | `/api/v1/patient` | Update patient data        |
+| `GET` | `/api/v1/patient?id=18` | Get a specific patient        |
+| `GET` | `/api/v1/filterpatient?filter=9036` | Filter patient based on  phone no       |
+| `POST` | `/api/v1/signout` | Sign Out      |
 
 
 ## **Setup Instructions**  
@@ -64,10 +64,10 @@ Below are the available API endpoints for MediCloud Backend:
 
 ### **3. Add .env File(Environment Variables)**  
 ```bash
-        DATABASE_URL="your postgresql link" 
-        SECRET_KEY="256-bit hexadecimal key" 
-        JWT_SECRETKEY="your secret key" 
-        CORS_URL="http://localhost:3000 OR any other custom domain" 
+    DATABASE_URL="your postgresql link" 
+    SECRET_KEY="256-bit hexadecimal key" 
+    JWT_SECRETKEY="your secret key" 
+    CORS_URL="http://localhost:3000 OR any other custom domain" 
 ```
 ### **4. Run the Backend**  
 ```bash
@@ -81,13 +81,13 @@ Below are the available API endpoints for MediCloud Backend:
 ```
 
 ```bash
-      docker run -d \
-        -p 3000:3000 \
-        -e DATABASE_URL="your postgresql link" \
-        -e SECRET_KEY="256-bit hexadecimal key" \
-        -e JWT_SECRETKEY="your secret key" \
-        -e CORS_URL="http://localhost:3000 OR any other custom domain" \
-        medicloud-backend
+    docker run -d \
+    -p 3000:3000 \
+    -e DATABASE_URL="your postgresql link" \
+    -e SECRET_KEY="256-bit hexadecimal key" \
+    -e JWT_SECRETKEY="your secret key" \
+    -e CORS_URL="http://localhost:3000 OR any other custom domain" \
+    medicloud-backend
 ```
 
 ## License

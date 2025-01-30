@@ -40,12 +40,14 @@ Below are the available API endpoints for MediCloud Backend:
 | `POST`  | `/api/vi/signin`   | Authentication    |
 | `GET`   | `/api/vi/doctors` | Retrieve decrypted doctors data |
 | `GET` | `/api/v1/doctor?id=4` | Get a specific doctor        |
+| `POST` | `/api/v1/doctor` | Add doctor data        |
 | `GET` | `/api/v1/filterdoctor?filter=amit` | Filter doctor based on email       |
 | `GET` | `/api/v1/isadmin` | Check whether user(Doctor) is Admin        |
 | `GET` | `/api/v1/me` | Check whether user(Doctor) is Authenticated        |
 | `GET` | `/api/v1/patients` | Retrieve decrypted patients data        |
-| `PUT` | `/api/v1/patient` | Update patient data        |
 | `GET` | `/api/v1/patient?id=18` | Get a specific patient        |
+| `POST` | `/api/v1/patient` | Add patient data        |
+| `PUT` | `/api/v1/patient` | Update patient data        |
 | `GET` | `/api/v1/filterpatient?filter=9036` | Filter patient based on  phone no       |
 | `POST` | `/api/v1/signout` | Sign Out      |
 

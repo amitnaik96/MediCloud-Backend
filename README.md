@@ -74,7 +74,7 @@ Below are the available API endpoints for MediCloud Backend:
     npm run dev
 ```
 
-## Get image from dockerhub
+### **5. Run with Docker**  
 
 ```bash
     docker build -t medicloud-backend .

@@ -1,27 +1,27 @@
 name: Build and Deploy to Dockerhub
 
 on:
-  pull_request
+  pull_request:
     branches:
       - master
 
 jobs:
-  buid-on-push:
+  build-on-push:
     runs-on: ubuntu-latest
     steps:
       - name: Check-out repo
         uses: actions/checkout@v2
 
-      - name: Login to dockerhub
-        uses: docker/login-action@v1
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
         with:
-          username: $${{ secrets.DOCKER_USERNAME }} 
-          password: $${{ secrets.DOCKER_PASSWORD }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
       
-      - name: Build and push to Docker
+      - name: Build and Push to Docker Hub
         uses: docker/build-push-action@v2
         with:
           context: .
           file: ./Dockerfile
           push: true
-          tags: darkxprime/medicloud-server:latest   # v2 v3 are actual deployed docker containers
+          tags: darkxprime/medicloud-server:latest # v2 and v3 are actual deployed docker containers

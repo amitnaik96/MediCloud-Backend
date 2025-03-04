@@ -37,8 +37,8 @@ Below are the available API endpoints for MediCloud Backend:
 
 | Method  | Endpoint       | Description                        |
 |---------|---------------|------------------------------------|
-| `POST`  | `/api/vi/signin`   | Authentication    |
-| `GET`   | `/api/vi/doctors` | Retrieve decrypted doctors data |
+| `POST`  | `/api/v1/signin`   | Authentication    |
+| `GET`   | `/api/v1/doctors` | Retrieve decrypted doctors data |
 | `GET` | `/api/v1/doctor?id=4` | Get a specific doctor        |
 | `POST` | `/api/v1/doctor` | Add doctor data        |
 | `GET` | `/api/v1/filterdoctor?filter=amit` | Filter doctor based on email       |

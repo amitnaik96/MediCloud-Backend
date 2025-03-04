@@ -27,26 +27,8 @@ MediCloud Backend is a secure API service for handling encrypted medical data tr
    - Stored **encrypted in PostgreSQL**  
    - Retrieved **securely and decrypted** before sending to authorized users  
 
+
 ![Architecture](https://github.com/amitnaik96/MediCloud-Backend/blob/master/images/SD.png)  
-
-## **API Endpoints**  
-Below are the available API endpoints for MediCloud Backend:
-
-| Method  | Endpoint       | Description                        |
-|---------|---------------|------------------------------------|
-| `POST`  | `/api/v1/signin`   | Authentication    |
-| `GET`   | `/api/v1/doctors` | Retrieve decrypted doctors data |
-| `GET` | `/api/v1/doctor?id=4` | Get a specific doctor        |
-| `POST` | `/api/v1/doctor` | Add doctor data        |
-| `GET` | `/api/v1/filterdoctor?filter=amit` | Filter doctor based on email       |
-| `GET` | `/api/v1/isadmin` | Check whether user(Doctor) is Admin        |
-| `GET` | `/api/v1/me` | Check whether user(Doctor) is Authenticated        |
-| `GET` | `/api/v1/patients` | Retrieve decrypted patients data        |
-| `GET` | `/api/v1/patient?id=18` | Get a specific patient        |
-| `POST` | `/api/v1/patient` | Add patient data        |
-| `PUT` | `/api/v1/patient` | Update patient data        |
-| `GET` | `/api/v1/filterpatient?filter=9036` | Filter patient based on  phone no       |
-| `POST` | `/api/v1/signout` | Sign Out      |
 
 
 ## **Setup Instructions**  
@@ -80,6 +62,8 @@ Below are the available API endpoints for MediCloud Backend:
     -e CORS_URL="http://localhost:3000 OR any other custom domain" \
     medicloud-backend
 ```
+### **API Documentation**
+Visit `http://localhost:3000/api/docs` for the documentation 
 
 ## License
 Distributed under the [MIT](https://github.com/amitnaik96/MediCloud-Backend/blob/master/LICENSE) License .

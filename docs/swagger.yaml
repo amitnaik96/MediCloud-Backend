@@ -1,0 +1,253 @@
+openapi: 3.0.0
+info:
+  title: MediCloud API
+  version: 1.0.0
+  description: API for secure medical data transmission
+
+servers:
+  - url: http://localhost:3000/api/v1
+
+components:
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: token 
+
+paths:
+  /signin:
+    post:
+      summary: Authenticate user
+      description: Authenticates a doctor.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+              required:
+                - username
+                - password
+      responses:
+        "200":
+          description: Successful authentication
+
+  /signout:
+    post:
+      summary: Sign Out
+      description: Logs out the authenticated user.
+      responses:
+        "200":
+          description: Successfully signed out
+
+  /isadmin:
+    get:
+      summary: Check if user is an admin
+      security:
+        - cookiesAuth: []
+      responses:
+        "200":
+          description: Admin status of user
+
+  /me:
+    get:
+      summary: Check if user is authenticated
+      security:
+        - cookiesAuth: []
+      responses:
+        "200":
+          description: Authentication status
+
+  /doctors:
+    get:
+      summary: Retrieve doctors data
+      description: Returns decrypted doctors' data.
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: List of doctors
+
+  /doctor:
+    get:
+      summary: Get a specific doctor
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Doctor details
+    post:
+      summary: Add doctor data
+      description: Registers a new doctor with the provided details.
+      security:
+        - cookieAuth: []
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                username:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                admin:
+                  type: boolean
+                degree:
+                  type: string
+                specialist:
+                  type: string
+                yoe:
+                  type: string
+              required:
+                - name
+                - username
+                - password
+                - admin
+                - degree 
+                - specialist 
+                - yoe
+      responses:
+        "200":
+          description: Doctor added successfully
+
+  /filterdoctor:
+    get:
+      summary: Filter doctors by email
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: filter
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Filtered doctor list
+
+  /patients:
+    get:
+      summary: Retrieve patients data
+      description: Returns decrypted patient data.
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: List of patients
+
+  /patient:
+    get:
+      summary: Get a specific patient
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Patient details
+    post:
+      summary: Add patient data
+      desciption: Registers a new patient with the provided details.
+      security:
+        - cookieAuth: []
+      requestBody: 
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                phoneNo:
+                  type: string
+                age: 
+                  type: integer
+                weight: 
+                  type: string
+                bloodGroup:
+                  type: string
+                married:
+                  type: boolean
+                insurance:
+                  type: boolean
+                note:
+                  type: string
+              required:
+                - name
+                - phoneNo
+                - age
+                - weight
+                - bloodGroup
+                - married
+                - insurance
+                - note
+      responses:
+        "201":
+          description: Patient added successfully
+    put:
+      summary: Update patient data
+      desciption: Updates an existing patient's details
+      security:
+        - cookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name: 
+                  type: string
+                phoneNo:
+                  type: string
+                age: 
+                  type: string
+                weight:
+                  type: string
+                bloodGroup:
+                  type: string
+                married: 
+                  type: string
+                insurance:
+                  type: string
+                note:
+                  type: string
+      responses:
+        "200":
+          description: Patient updated successfully
+
+  /filterpatient:
+    get:
+      summary: Filter patients by phone number
+      security:
+        - cookieAuth: []
+      parameters:
+        - name: filter
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Filtered patient list

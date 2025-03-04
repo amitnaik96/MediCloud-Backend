@@ -56,16 +56,16 @@ Below are the available API endpoints for MediCloud Backend:
     git clone https://github.com/amitnaik96/MediCloud-Backend.git
     cd MediCloud-Backend
 ```
-### **2. Install dependencies and add .env file(refer .env.example)**  
+### **2. Install dependencies and add .env file (refer .env.example)**  
 ```bash
     npm install
 ```
-### **4. Run the backend**  
+### **3. Run the backend**  
 ```bash
     npm run dev
 ```
 
-### **5. Run with docker**  
+### **Run with docker**  
 
 ```bash
     docker build -t medicloud-backend .

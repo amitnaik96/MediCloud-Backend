@@ -1,8 +1,4 @@
-# MediCloud Backend
-
-## Secure and Private Medical Data Transmission in Cloud Computing 
-
-## **Overview**  
+[![medicloud-logo](https://github.com/amitnaik96/MediCloud-Backend/blob/master/images/medicloud-logo.png)](https://medicloud.realamit.xyz/)
 MediCloud Backend is a secure API service for handling encrypted medical data transmission in a cloud environment. It ensures **privacy, integrity, and confidentiality** by implementing **AES encryption** before storing data in a **Neon-Tech PostgreSQL database**. The backend is deployed in a **containerized environment** on **AWS EC2**, with **Nginx as a reverse proxy**.
 
 ## **Features**  
@@ -30,7 +26,7 @@ MediCloud Backend is a secure API service for handling encrypted medical data tr
    - Stored **encrypted in PostgreSQL**  
    - Retrieved **securely and decrypted** before sending to authorized users  
 
-![Architecture](https://github.com/amitnaik96/MediCloud-Backend/blob/master/SD.png)  
+![Architecture](https://github.com/amitnaik96/MediCloud-Backend/blob/master/images/SD.png)  
 
 ## **API Endpoints**  
 Below are the available API endpoints for MediCloud Backend:

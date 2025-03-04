@@ -1,4 +1,5 @@
 [![medicloud-logo](https://github.com/amitnaik96/MediCloud-Backend/blob/master/images/medicloud-logo.png)](https://medicloud.realamit.xyz/)  
+
 MediCloud Backend is a secure API service for handling encrypted medical data transmission in a cloud environment. It ensures **privacy, integrity, and confidentiality** by implementing **AES encryption** before storing data in a **Neon-Tech PostgreSQL database**. The backend is deployed in a **containerized environment** on **AWS EC2**, with **Nginx as a reverse proxy**.
 
 ## **Features**  
@@ -50,29 +51,21 @@ Below are the available API endpoints for MediCloud Backend:
 
 ## **Setup Instructions**  
 
-### **1. Clone the Repository**  
+### **1. Clone the repository**  
 ```bash
     git clone https://github.com/amitnaik96/MediCloud-Backend.git
     cd MediCloud-Backend
 ```
-### **2. Install Dependencies**  
+### **2. Install dependencies and add .env file(refer .env.example)**  
 ```bash
     npm install
 ```
-
-### **3. Add .env File(Environment Variables)**  
-```bash
-    DATABASE_URL="your postgresql link" 
-    SECRET_KEY="256-bit hexadecimal key" 
-    JWT_SECRETKEY="your secret key" 
-    CORS_URL="http://localhost:3000 OR any other custom domain" 
-```
-### **4. Run the Backend**  
+### **4. Run the backend**  
 ```bash
     npm run dev
 ```
 
-### **5. Run with Docker**  
+### **5. Run with docker**  
 
 ```bash
     docker build -t medicloud-backend .

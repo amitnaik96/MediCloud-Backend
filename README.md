@@ -15,18 +15,7 @@ MediCloud Backend is a secure API service for handling encrypted medical data tr
 - **Encryption**: AES (Advanced Encryption Standard)  
 - **Deployment**: AWS EC2, Docker  
 - **Proxy**: Nginx  
-- **Frontend**: React (Deployed on Cloudflare Pages) 
-
-## **Architecture**  
-1. **Frontend** (`https://medicloud.realamit.xyz`) hosted on **Cloudflare Pages**  
-2. **Backend** (`https://medicloud-server.realamit.xyz`) running inside a **Docker container** on **AWS EC2(Instance has been stopped now!)**  
-3. **Nginx** reverse proxy managing requests  
-4. **Neon-Tech PostgreSQL** for encrypted data storage  
-5. **Data Flow**:
-   - Medical data is **encrypted using AES** before storage  
-   - Stored **encrypted in PostgreSQL**  
-   - Retrieved **securely and decrypted** before sending to authorized users  
-
+- **Frontend**: React (Deployed on Cloudflare Pages)  
 
 ![Architecture](https://github.com/amitnaik96/MediCloud-Backend/blob/master/images/SD.png)  
 

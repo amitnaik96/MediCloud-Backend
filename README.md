@@ -1,6 +1,6 @@
 [![medicloud-logo](https://github.com/amitnaik96/MediCloud-Backend/blob/master/images/medicloud-logo.png)](https://medicloud.realamit.xyz/)  
 
-MediCloud Backend is a secure API service for handling encrypted medical data transmission in a cloud environment. It ensures **privacy, integrity, and confidentiality** by implementing **AES encryption** before storing data in a **Neon-Tech PostgreSQL database**. The backend is deployed in a **containerized environment** on **AWS EC2**, with **Nginx as a reverse proxy**.
+This project ensures secure and private medical data transmission in the cloud using AES encryption to protect patient and doctor information
 
 ## **Features**  
 **AES Encryption** – Securely encrypts patients and doctors data before storage  
@@ -20,29 +20,28 @@ MediCloud Backend is a secure API service for handling encrypted medical data tr
 ![Architecture](https://github.com/amitnaik96/MediCloud-Backend/blob/master/images/SD.png)  
 
 
-## **Setup Instructions**  
+## **Installation**  
 
-### **1. Clone the repository**  
+### **Local**
 ```bash
+    # clone the repo
     git clone https://github.com/amitnaik96/MediCloud-Backend.git
     cd MediCloud-Backend
-```
-### **2. Install dependencies and add .env file (refer .env.example)**  
-```bash
+
+    # install dependencies and add .env file (refer .env.example)**  
     npm install
-```
-### **3. Run the backend**  
-```bash
+    
+    # run the backend  
     npm run dev
 ```
 
-### **Run with docker**  
+### **Docker**
 
 ```bash
+    # build the image
     docker build -t medicloud-backend .
-```
 
-```bash
+    # run the container with envs
     docker run -d \
     -p 3000:3000 \
     -e DATABASE_URL="your postgresql link" \
@@ -51,7 +50,7 @@ MediCloud Backend is a secure API service for handling encrypted medical data tr
     -e CORS_URL="http://localhost:3000 OR any other custom domain" \
     medicloud-backend
 ```
-### **API Documentation**
+### **API Docs**
 Visit `http://localhost:3000/api/docs` for the documentation 
 
 ## License

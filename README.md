@@ -28,7 +28,7 @@ This project ensures secure and private medical data transmission in the cloud u
     git clone https://github.com/amitnaik96/MediCloud-Backend.git
     cd MediCloud-Backend
 
-    # install dependencies and add .env file (refer .env.example)**  
+    # install dependencies and add .env file (refer .env.example)
     npm install
     
     # run the backend  
@@ -38,17 +38,14 @@ This project ensures secure and private medical data transmission in the cloud u
 ### **Docker**
 
 ```bash
-    # build the image
-    docker build -t medicloud-backend .
-
-    # run the container with envs
+    # pull and run the container with envs
     docker run -d \
     -p 3000:3000 \
     -e DATABASE_URL="your postgresql link" \
     -e SECRET_KEY="256-bit hexadecimal key" \
     -e JWT_SECRETKEY="your secret key" \
     -e CORS_URL="http://localhost:3000 OR any other custom domain" \
-    medicloud-backend
+    darkxprime/medicloud-server:v3
 ```
 ### **API Docs**
 Visit `http://localhost:3000/api/docs` for the documentation 
